@@ -1,0 +1,12 @@
+# Virtual environments
+.venv/
+env/
+__pycache__/
+
+# Data files (especially large raw dumps)
+*.csv
+*.json
+
+# Generated charts / HTML plots
+*.html
+*.png
