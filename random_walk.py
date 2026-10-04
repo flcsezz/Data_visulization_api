@@ -1,4 +1,5 @@
 from random import choice
+import sys
 
 import matplotlib.pyplot as plt
 
@@ -11,24 +12,27 @@ class Random_Walk():
         self.y_values = [0]
 
     def fill_walk(self):
-
         while len(self.x_values) < self.num_points:
-            #step = direction * distance
-            self.x_step = choice([-1,1]) * choice([0, 1, 2, 3, 4])
-            self.y_step = choice ([-1, 1]) * choice([0, 1, 2, 3, 4])
 
-            if self.x_step==0 and self.y_step == 0:
+            x_step = self.get_step()
+            y_step = self.get_step()
+
+            if x_step == 0 and y_step == 0:
                 continue
 
-            self.get_step()
+            x = self.x_values[-1] + x_step
+            y= self.y_values[-1] + y_step
+
+            self.x_values.append(x)
+            self.y_values.append(y)
 
     def get_step(self):
+        #step = direction * distance
+        step = choice([-1,1]) * choice([0, 1, 2, 3, 4, 5])
 
-        x = self.x_values[-1] + self.x_step
-        y = self.y_values[-1] + self.y_step
+        return step
 
-        self.x_values.append(x)
-        self.y_values.append(y)
+
 
             
 
