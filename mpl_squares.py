@@ -1,12 +1,14 @@
 import matplotlib.pyplot as plt
 
-input = [1, 2, 3, 4, 5, 6, 7]
-squares = [1, 4, 9, 16, 25, 36, 49]
+y_values = range(1,1001)
+x_values = [x**2 for x in y_values]
 
 plt.style.use('dark_background')
 
 fig, ax = plt.subplots()
-ax.scatter(input, squares, s=100)
+ax.scatter(y_values, x_values, c= y_values, cmap=plt.cm.Reds, s=10)
+
+ax.axis([0, 1100, 0, 1_100_000])
 
 #ax.plot(input, squares, linewidth=4)
 
@@ -16,4 +18,6 @@ ax.set_xlabel("Bullshi", fontsize = 20)
 
 #set size of tick lables 
 ax.tick_params(labelsize=14)
+
+plt.savefig('Random_bs.png')
 plt.show()
