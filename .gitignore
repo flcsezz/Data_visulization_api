@@ -11,3 +11,6 @@ __pycache__/
 *.html
 *.png
 learning_log.md 
+weather_data/
+*.zip
+pcc_3e-main/
