@@ -1,9 +1,7 @@
 from random import choice
-import sys
-
 import matplotlib.pyplot as plt
 
-class Random_Walk():
+class RandomWalk():
 
     def __init__(self, num_points=5000):
 
@@ -37,7 +35,7 @@ class Random_Walk():
             
 
 
-rw = Random_Walk()
+rw = RandomWalk()
 rw.fill_walk()
 
 plt.style.use('dark_background')

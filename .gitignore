@@ -10,3 +10,4 @@ __pycache__/
 # Generated charts / HTML plots
 *.html
 *.png
+learning_log.md 
