@@ -10,23 +10,19 @@ all_dict = all_eq_data['features']
 mags, lons, lats, eq_titles= [], [], [], []
 
 for dicta in all_dict:
-    mag = dicta['properties']['mag']
-    lon = dicta['geometry']['coordinates'][0]
-    lat = dicta['geometry']['coordinates'][1]
-    titles = dicta['properties']['title']
-
-    mags.append(mag)
-    lons.append(lon)
-    lats.append(lat)
-    eq_titles.append(titles)
+    mags.append(dicta['properties']['mag'])
+    lons.append(dicta['geometry']['coordinates'][0])
+    lats.append(dicta['geometry']['coordinates'][1])
+    eq_titles.append(dicta['properties']['title'])
 
 
-title = "Global Earthquakes"
+title = all_eq_data["metadata"]['title']
 fig = px.scatter_geo(lat= lats, lon = lons, size = mags, title=title,
                      color = mags,
                      color_continuous_scale="icefire",
                      labels= {"color":'Magnitude'},
                      projection= "orthographic",
-                     hover_name= eq_titles)
+                     hover_name= eq_titles,
+                     )
 
 fig.show()
