@@ -3,7 +3,7 @@ import csv
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-path = Path('weather_data/sitka_weather_07-2021_simple.csv')
+path = Path()
 
 lines = path.read_text().splitlines()
 
@@ -15,12 +15,16 @@ dates = []
 lows = []
 
 for row in reader:
-    high = int(row[4])
-    highs.append(high)
     date = datetime.strptime(row[2], "%Y-%m-%d")
-    dates.append(date)
-    low = int(row[5])
-    lows.append(low)
+    try:
+        high = int(row[4])
+        low = int(row[5])
+    except ValueError:
+        print(f"Missing data for {date}")
+    else:
+        highs.append(high)
+        lows.append(low)
+        dates.append(date)
 
 
 
@@ -30,9 +34,9 @@ for row in reader:
 plt.style.use('dark_background')
 fig, ax = plt.subplots()
 
-ax.plot(dates,highs,  color= "red", alpha = 1)
-ax.plot(dates,lows, color = "blue", alpha = 1)
-ax.fill_between(dates, highs, lows,facecolor = 'blue', alpha = 0.2)
+ax.plot(dates,highs,  color= "red", alpha = 0.5)
+ax.plot(dates,lows, color = "blue", alpha = 0.5)
+ax.fill_between(dates, highs, lows,facecolor = 'blue', alpha = 0.1)
 
 ax.set_title("random shi" , fontsize=24)
 ax.set_xlabel("date", fontsize = 14)

@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 y_values = range(1,1001)
 x_values = [x**2 for x in y_values]
 
-plt.style.use('dark_background')
 
 fig, ax = plt.subplots()
 ax.scatter(y_values, x_values, c= y_values, cmap=plt.cm.Reds, s=10)
